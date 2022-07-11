@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_005_hoisting.html</title>
+</head>
+<body>
+    <script>
+        process();
+        //display is not a function
+        //display();
+        console.log(display);
+        //함수 선언문 -hoisting 발생
+        function process(){
+         console.log('process');
+        }
+
+        //함수 표현식
+        var display = function(){
+              console.log('display');
+        }
+
+       display();
+    </script>
+</body>
+</html>
+
+function a(){
+    var k=3;
+
+    funtion b(){
+        
+        funtion c(){
+            console.log(k);    //this c, b, a
+        }
+    }
+}

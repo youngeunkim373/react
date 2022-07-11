@@ -1,0 +1,19 @@
+
+1. 테이블, 시퀀스 생성
+
+2.  프로젝트 생성
+npx create-react-app myapp300_shop
+
+3. client에 library 설치
+npm install axios bootstrap react-router-dom react-js-pagination
+
+4. server에 library 설치
+ npm install  body-parser  cors  express multer nodemon oracledb
+ npm install -D concurrently
+
+5.  client와 server동시에 실행할수 있도록 package.json에 등록
+"scripts": {
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  }

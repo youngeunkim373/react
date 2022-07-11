@@ -1,0 +1,22 @@
+{
+  "name": "myapp200_customer",
+  "version": "1.0.0",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.16",
+    "oracledb": "^5.4.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.1"
+  }
+}

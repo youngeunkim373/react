@@ -1,0 +1,62 @@
+npm i -D concurrently
+
+/////////////////////
+///ORACLE TABLE생성
+CREATE TABLE customer(
+  id number primary key,
+  image varchar2(1024),
+  name varchar2(64),
+  birthday varchar2(64),
+  gender varchar2(64),
+  email varchar2(64)
+);
+
+//시퀀스 생성
+CREATE SEQUENCE customer_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+//레코드 삽입
+INSERT INTO customer 
+VALUES(customer_id_seq.nextval, 'https://placeimg.com/64/64/1','고수','780604','남자','su@gmail.com');
+
+INSERT INTO customer 
+VALUES(customer_id_seq.nextval, 'https://placeimg.com/64/64/2','김연아','980426','여자','kim@daum.net');
+
+INSERT INTO customer 
+VALUES(customer_id_seq.nextval, 'https://placeimg.com/64/64/3','박태환','901206','남자','park@naver.com');
+
+commit;
+
+SELECT * FROM customer;
+
+//////////////////////////
+//NODE.JS에서 oracle 작업
+1. www.oracle.com 설치
+2. D:\reat_wokspace\source\myapp200_customer> 에서
+   npm install oracledb
+
+3. dbconfig.js
+   module.exports = {
+     user: "hr",
+      password: "1234",
+     connectString: "localhost/xe",
+   };   
+
+4. server.js 
+   const oracledb = require('oracledb');
+   const dbConfig = require("./dbconfig.js");
+
+5. 첨부파일
+  npm install multer
+
+  const multer = require('multer');
+
+////////
+//오라클 오류발생
+ Error: DPI-1047: Cannot locate a 64-bit Oracle Client library: "The specified module could not be found". See https://oracle.github.io/node-oracledb/INSTALL.html for help
+[0] Node-oracledb installation instructions: https://oracle.github.io/node-oracledb/INSTALL.html
+
+고급설정 path: C:\oraclexe\app\oracle\product\11.2.0\server\bin
